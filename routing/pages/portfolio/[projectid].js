@@ -1,10 +1,9 @@
-import { useRouter } from "next/router"
+import { useRouter } from 'next/router'
 
 const PortfolioProjectPage = () => {
+	const router = useRouter()
 
-    const router = useRouter()
-
-    return<>Portfolio Project Page - {router.query.projectid}</>
+	return <>Portfolio Project Page - {router.query.projectid}</>
 }
 
 export default PortfolioProjectPage

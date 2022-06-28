@@ -1,11 +1,15 @@
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 
 function SelectedClientProjectPage() {
+	const router = useRouter()
+	console.log(router.query)
 
-    const router = useRouter()
-    console.log(router.query)
-
-    return<>The Project Page for {router.query.clientprojectid} of {router.query.id}</>
+	return (
+		<>
+			The Project Page for {router.query.clientprojectid} of{' '}
+			{router.query.id}
+		</>
+	)
 }
 
 export default SelectedClientProjectPage
