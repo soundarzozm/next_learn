@@ -1,7 +1,10 @@
 import { useRouter } from 'next/router'
+
 import EventContent from '../../components/event-detail/EventContent'
 import EventLogistics from '../../components/event-detail/EventLogistics'
 import EventSummary from '../../components/event-detail/EventSummary'
+import ErrorAlert from '../../components/ui/error-alert'
+
 import { getEventById } from '../../DummyData'
 
 const EventDetail = () => {
@@ -10,7 +13,11 @@ const EventDetail = () => {
 	const event = getEventById(eventId)
 
 	if (!event) {
-		return <p>No event found!</p>
+		return (
+			<ErrorAlert>
+				<p>No event found!</p>
+			</ErrorAlert>
+		)
 	}
 
 	return (
