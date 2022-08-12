@@ -2,6 +2,7 @@ import EventContent from '../../components/event-detail/EventContent'
 import EventLogistics from '../../components/event-detail/EventLogistics'
 import EventSummary from '../../components/event-detail/EventSummary'
 import ErrorAlert from '../../components/ui/error-alert'
+import Head from 'next/head'
 
 import { getEventById, getFeaturedEvents } from '../../helpers/api-util'
 
@@ -18,6 +19,13 @@ const EventDetail = (props: any) => {
 
 	return (
 		<>
+			<Head>
+				<title>{event.title}</title>
+				<meta
+					name="description"
+					content="Find the collection of featured events in this project!"
+				/>
+			</Head>
 			<EventSummary title={event.title} />
 			<EventLogistics
 				date={event.date}
@@ -42,17 +50,16 @@ export async function getStaticProps(context: any) {
 		props: {
 			selectedEvent: event,
 		},
-		revalidate: 30
+		revalidate: 30,
 	}
 }
 
 export async function getStaticPaths() {
-
 	const events = await getFeaturedEvents()
-	const paths = events.map((event) => ({params: {eventId: event.id}}))
+	const paths = events.map((event) => ({ params: { eventId: event.id } }))
 
 	return {
 		paths: paths,
-		fallback: 'blocking'
+		fallback: 'blocking',
 	}
 }

@@ -3,30 +3,42 @@ import EventList from '../../components/events/EventList'
 import ResultsTitle from '../../components/events/results-title'
 import Button from '../../components/ui/button'
 import ErrorAlert from '../../components/ui/error-alert'
+import Head from 'next/head'
 
 const FilteredEventsPage = (props: any) => {
+	const date = new Date(props.date.year, props.date.month - 1)
+	const filteredEvents = props.events
+
+	const pageHeadData = (
+		<Head>
+			<title>Filtered Events</title>
+			<meta
+				name="description"
+				content={`All events for ${props.date.month}/${props.date.year}`}
+			/>
+		</Head>
+	)
+
 	if (props.hasError) {
 		return (
 			<>
+				{pageHeadData}
 				<ErrorAlert>
 					<p className="center">
 						Invalid filter. Please adjust your values!
 					</p>
 				</ErrorAlert>
-				<div className='center'>
-					<Button link='/events'>
-						Show All Events
-					</Button>
+				<div className="center">
+					<Button link="/events">Show All Events</Button>
 				</div>
 			</>
 		)
 	}
 
-	const filteredEvents = props.events
-
 	if (!filteredEvents || filteredEvents.length === 0) {
 		return (
 			<>
+			{pageHeadData}
 				<ErrorAlert>
 					<p>No events found for the chosen filter!</p>
 				</ErrorAlert>
@@ -38,10 +50,9 @@ const FilteredEventsPage = (props: any) => {
 		)
 	}
 
-	const date = new Date(props.date.year, props.date.month - 1)
-
 	return (
 		<div>
+			{pageHeadData}
 			<ResultsTitle date={date} />
 			<EventList items={filteredEvents} />
 		</div>
@@ -82,8 +93,8 @@ export async function getServerSideProps(context: any) {
 			events: filteredEvents,
 			date: {
 				year: numYear,
-				month: numMonth
-			}
+				month: numMonth,
+			},
 		},
 	}
 }
