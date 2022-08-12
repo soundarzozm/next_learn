@@ -1,14 +1,10 @@
-import { useRouter } from 'next/router'
 import { getFilteredEvents } from '../../helpers/api-util'
-
 import EventList from '../../components/events/EventList'
 import ResultsTitle from '../../components/events/results-title'
 import Button from '../../components/ui/button'
 import ErrorAlert from '../../components/ui/error-alert'
 
 const FilteredEventsPage = (props: any) => {
-	const router = useRouter()
-
 	if (props.hasError) {
 		return (
 			<>
