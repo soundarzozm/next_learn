@@ -22,6 +22,14 @@ const HomePage = () => {
 			.then((data) => console.log(data))
 	}
 
+	const handleGetFeedbacks = (event: any) => {
+		event.preventDefault()
+
+		fetch('/api/feedback')
+			.then((response) => response.json())
+			.then((data) => console.log(data))
+	}
+
 	return (
 		<div>
 			<h1>The Home Page</h1>
@@ -36,6 +44,8 @@ const HomePage = () => {
 				</div>
 				<button onClick={handleSubmit}>Send Feedback</button>
 			</form>
+			<hr />
+			<button onClick={handleGetFeedbacks}>Get Feedbacks</button>
 		</div>
 	)
 }

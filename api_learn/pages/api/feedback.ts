@@ -1,6 +1,19 @@
 import fs from 'fs'
 import path from 'path'
 
+const getFeedbackPath = () => {
+	return path.join(process.cwd(), 'data', 'feedback.json')
+}
+
+const readFeedback = () => {
+	const filePath = getFeedbackPath()
+	const fileData = fs.readFileSync(filePath)
+
+	const data = JSON.parse(fileData)
+
+	return data
+}
+
 function handler(req: any, res: any) {
 	if (req.method === 'POST') {
 		try {
@@ -13,13 +26,10 @@ function handler(req: any, res: any) {
 				text: feedbackText,
 			}
 
-			const filePath = path.join(process.cwd(), 'data', 'feedback.json')
-			const fileData = fs.readFileSync(filePath)
-
-			const data = JSON.parse(fileData)
+			const data = readFeedback()
 
 			data.push(newFeedback)
-			fs.writeFileSync(filePath, JSON.stringify(data))
+			fs.writeFileSync(getFeedbackPath(), JSON.stringify(data))
 
 			res.status(201).json({
 				message: 'Success!',
@@ -29,8 +39,9 @@ function handler(req: any, res: any) {
 			console.log(error)
 		}
 	} else {
+		const data = readFeedback()
 		res.status(200).json({
-			message: 'This works!',
+			feedback: data,
 		})
 	}
 }
