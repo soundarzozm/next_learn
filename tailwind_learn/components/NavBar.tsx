@@ -6,36 +6,62 @@ const NavBar: NextComponentType = () => {
 	const { theme, setTheme } = useTheme()
 
 	return (
-		<nav className="sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30 w-screen flex justify-evenly items-center p-3 text-sm font-light dark:shadow-xl">
-			<div className="flex justify-between items-center w-1/3">
-				<a href="#">
-					<img src="/logo.png" className="h-7 w-7" />
-				</a>
-				<a
-					href="#"
-					className="hover:text-purple-500 dark:hover:text-cyan-500 hover:scale-110 duration-150 transition ease-in-out"
+		<nav className="sticky top-0 z-10 backdrop-filter backdrop-blur-lg bg-opacity-30 w-screen p-3 text-sm font-light dark:shadow-xl">
+			<button className="md:hidden">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					className="h-8 w-8 dark:text-white text-black"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
 				>
-					About
-				</a>
-				<a
-					href="#"
-					className="hover:text-purple-500 dark:hover:text-cyan-500 hover:scale-110 duration-150 transition ease-in-out"
-				>
-					Projects
-				</a>
-				<a
-					href="#"
-					className="hover:text-purple-500 dark:hover:text-cyan-500 hover:scale-110 duration-150 transition ease-in-out"
-				>
-					Posts
-				</a>
-				<a
-					href="#"
-					className="hover:text-purple-500 dark:hover:text-cyan-500 hover:scale-110 duration-150 transition ease-in-out"
-				>
-					Resume
-				</a>
-			</div>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 6h16M4 12h16M4 18h16"
+					/>
+				</svg>
+			</button>
+			<ul className="">
+				<li>
+					<a href="#">
+						<img src="/logo.png" className="h-7 w-7" />
+					</a>
+				</li>
+				<li>
+					<a
+						href="#"
+						className="hover:text-purple-500 dark:hover:text-cyan-500 hover:scale-110 duration-150 transition ease-in-out"
+					>
+						About
+					</a>
+				</li>
+				<li>
+					<a
+						href="#"
+						className="hover:text-purple-500 dark:hover:text-cyan-500 hover:scale-110 duration-150 transition ease-in-out"
+					>
+						Projects
+					</a>
+				</li>
+				<li>
+					<a
+						href="#"
+						className="hover:text-purple-500 dark:hover:text-cyan-500 hover:scale-110 duration-150 transition ease-in-out"
+					>
+						Posts
+					</a>
+				</li>
+				<li>
+					<a
+						href="#"
+						className="hover:text-purple-500 dark:hover:text-cyan-500 hover:scale-110 duration-150 transition ease-in-out"
+					>
+						Resume
+					</a>
+				</li>
+			</ul>
 			{theme === 'dark' ? (
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +87,7 @@ const NavBar: NextComponentType = () => {
 					viewBox="0 0 24 24"
 					strokeWidth={1.5}
 					stroke="currentColor"
-					className="w-6 h-6 cursor-pointer hover:scale-110 duration-150 transition ease-in-out stroke-purple-500"
+					className="w-5 h-5 cursor-pointer hover:scale-110 duration-150 transition ease-in-out stroke-purple-500"
 					onClick={() =>
 						setTheme(theme === 'dark' ? 'light' : 'dark')
 					}

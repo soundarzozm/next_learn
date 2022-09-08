@@ -3,13 +3,13 @@ import type { NextComponentType } from 'next'
 const Footer: NextComponentType = () => {
 	return (
 		<div className="mt-40 flex flex-col justify-center items-center">
-			<hr className="w-1/2" />
-			<div className="grid grid-cols-3 gap-60 mt-14">
+			<hr className="md:w-[1024px] w-screen" />
+			<div className="md:grid md:grid-cols-3 md:gap-60 mt-14 flex flex-row md:w-auto w-screen justify-around mx-10">
 				<img
 					src="/logo.png"
-					className="h-32 w-32 cursor-pointer duration-200 transition ease-in-out"
+					className="h-10 w-10 cursor-pointer duration-200 transition ease-in-out"
 				/>
-				<div>
+				<div className="">
 					<div className="font-regular tracking-wider mb-4 text-gray-800 dark:text-gray-300">
 						GENERAL
 					</div>
