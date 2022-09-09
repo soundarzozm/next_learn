@@ -144,8 +144,9 @@ const Footer: NextComponentType = () => {
 				</button>
 			</div>
 			<div className="mt-10 flex flex-col justify-center items-center text-xs text-gray-500 dark:text-gray-400 mb-20 font-light cursor-default">
-				<p className="mb-1">© 2022 Soundar Murugan</p>
-				<p>Designed & Built with ❤️ in India</p>
+				<p className="mb-5">© 2022 Soundar Murugan</p>
+				<p className="mb-1">Designed by Mayur Bhoi</p>
+				<p>Built with ❤️ in India</p>
 			</div>
 		</div>
 	)
