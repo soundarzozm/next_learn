@@ -59,7 +59,11 @@ const NavBar: NextComponentType = () => {
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						className="h-6 w-6 mx-3 dark:text-white text-black"
+						className={`h-6 w-6 mx-3 ${
+							isMenuOpen
+								? 'text-purple-500 dark:text-cyan-500'
+								: 'dark:text-white text-black'
+						} hover:scale-110 duration-150 transition ease-in-out`}
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
