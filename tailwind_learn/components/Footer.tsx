@@ -3,7 +3,7 @@ import type { NextComponentType } from 'next'
 const Footer: NextComponentType = () => {
 	return (
 		<div className="mt-40 flex flex-col justify-center items-center">
-			<hr className="md:w-[1024px] w-screen" />
+			<hr className=" max-w-4xl w-screen" />
 			<div className="md:grid md:grid-cols-3 md:gap-60 mt-14 flex flex-row md:w-auto w-screen justify-around mx-10">
 				<img
 					src="/logo.png"

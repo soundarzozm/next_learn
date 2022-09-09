@@ -8,7 +8,7 @@ const ProfileCard: NextComponentType = () => {
 					className="rounded-full border-8 border-white hover:border-purple-500 dark:hover:border-cyan-500 h-48 w-48 shadow-xl hover:scale-110 duration-200 transition ease-in-out hover:border-4"
 					src="/pfp.jpeg"
 				/>
-				<h1 className="text-5xl font-bold mt-7">Soundar Murugan</h1>
+				<h1 className="md:text-5xl text-2xl font-bold mt-7">Soundar Murugan</h1>
 				<div className="font-sans text-md text-gray-500 mt-2 dark:text-gray-400">
 					software engineer x product designer
 				</div>
