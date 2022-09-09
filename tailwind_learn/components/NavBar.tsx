@@ -13,7 +13,7 @@ const NavBar: NextComponentType = () => {
 					<img src="/logo.png" className="h-7 w-7" />
 				</a>
 				<ul
-					className={`md:flex pt-32 md:pt-0 justify-between md:space-y-0 space-y-32 text-5xl md:text-sm duration-150 transition ease-in-out ${
+					className={`flex md:pt-0 md:justify-between justify-evenly md:flex-row flex-col text-2xl md:text-sm duration-150 transition ease-in-out ${
 						isMenuOpen ? 'h-screen md:h-auto' : 'hidden md:block'
 					}
 						`}
